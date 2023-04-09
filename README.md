@@ -67,39 +67,41 @@ This project aims to predict the rating of human opponents in Scrabble games pla
 ### games.csv
 This file contains metadata about games, including the following columns:
 
--game_id: Unique id for the game
--first: Which player went first
--time_control_name: Name of time control used ("regular", "rapid", or "blitz")
--game_end_reason: How the game ended
--winner: Who won the game
--created_at: When the game was created
--lexicon: English lexicon used in the game ("CSW19", "NWL20", "CSW21")
--initial_time_seconds: Time limit each player has in the game (defines the time control name)
--increment_seconds: Time increment each player gets each time they play a turn
--rating_mode: Whether the game counts towards player ratings or not ("RATED", "CASUAL")
--max_overtime_minutes: How far past the initial time limit players can go before they timeout
--game_duration_seconds: How long the game lasted
+- game_id: Unique id for the game
+- first: Which player went first
+- time_control_name: Name of time control used ("regular", "rapid", or "blitz")
+- game_end_reason: How the game ended
+- winner: Who won the game
+- created_at: When the game was created
+- lexicon: English lexicon used in the game ("CSW19", "NWL20", "CSW21")
+- initial_time_seconds: Time limit each player has in the game (defines the time control name)
+- increment_seconds: Time increment each player gets each time they play a turn
+- rating_mode: Whether the game counts towards player ratings or not ("RATED", "CASUAL")
+- max_overtime_minutes: How far past the initial time limit players can go before they timeout
+- game_duration_seconds: How long the game lasted
 
 ### turns.csv
 This file contains gameplay data about turns played by each player in each game, including the following columns:
 
--game_id: Unique id for the game
--turn_number: The turn number in the game
--nickname: Player's username on woogles.io
--rack: Player's current rack
--location: Where the player places their turn on the board (NA for games in the test set or if the player didn't make a play, e.g., if they exchanged)
--move: Tiles the player laid (NA for games in the test set; "--" if the turn_type was "Pass"; "(challenge)" if the turn_type was "Challenge"; "-" plus tiles exchanged if the turn_type was "Exchange"; at the end of the game, remaining tiles in a player's rack are in parentheses)
--points: Points the player earned (or lost) in their turn
--score: Player's total score at the time of the turn
--turn_type: Type of turn played ("Play", "Exchange", "Pass", "Six-Zero Rule" (i.e., a game that ends when players pass 3 turns in a row each), "Challenge")
--train.csv and test.csv
+- game_id: Unique id for the game
+- turn_number: The turn number in the game
+- nickname: Player's username on woogles.io
+- rack: Player's current rack
+- location: Where the player places their turn on the board (NA for games in the test set or if the player didn't make a play, e.g., if they exchanged)
+- move: Tiles the player laid (NA for games in the test set; "--" if the turn_type was "Pass"; "(challenge)" if the turn_type was "Challenge"; "-" plus tiles exchanged if the turn_type was "Exchange"; at the end of the game, remaining tiles in a player's rack are in parentheses)
+- points: Points the player earned (or lost) in their turn
+- score: Player's total score at the time of the turn
+- turn_type: Type of turn played ("Play", "Exchange", "Pass", "Six-Zero Rule" (i.e., a game that ends when players pass 3 turns in a row each), "Challenge")
+
+### train.csv and test.csv
 These files contain final scores and ratings from BEFORE a given game was played for each player in each game, including the following columns:
 
--game_id: Unique id for the game
--nickname: Player's username on woogles.io
--score: Final score for each player for each game
--rating: Player's rating on woogles.io BEFORE the game was played; ratings are per Lexicon / time control name (AKA game variant). In test.csv, ratings are NA for player games; this is what you are predicting.
-Objective
+- game_id: Unique id for the game
+- nickname: Player's username on woogles.io
+- score: Final score for each player for each game
+- rating: Player's rating on woogles.io BEFORE the game was played; ratings are per Lexicon / time control name (AKA game variant). In test.csv, ratings are NA for player games; this is what you are predicting.
+
+### Objective
 The objective of this project is to build a predictive model that can accurately predict the rating of human opponents in the test set (test.csv) based on the provided metadata and gameplay data. The model will be trained on gameplay data from one set of human opponents in the train set (train.csv) and evaluated on its ability to predict the ratings of a different set of human opponents in the
 
 # Business Problem or Opportunity, Domain Knowledge
