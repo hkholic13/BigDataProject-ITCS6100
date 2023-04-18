@@ -25,128 +25,98 @@ Git link(https://github.com/hkholic13/BigDataProject-ITCS6100)
 
 Git link: [https://github.com/hkholic13/BigDataProject-ITCS6100](https://github.com/hkholic13/BigDataProject-ITCS6100)
 
-## First Choice :
+## First Choice : 
 
 # Selection of data to analyze
 
-We will carefully select the domain and data for our project, which in this case, will be the "H&M Personalized Fashion Recommendations" dataset provided by the competition organizers. We will analyze the dataset and understand its structure, features, and potential use cases for fashion recommendation.
+We will carefully select the domain and data for our project, which in this case, will be the "Porter Delivery Time Estimation" dataset provided by the competition organizers. We will analyze the dataset and understand its structure, features, and potential use cases for Delivery Time Prediction, Order Volume Analysis, Customer Satisfaction Analysis, Delivery Performance Analysis, Vendor Performance Analysis, Geographic Analysis, Seasonal Analysis.
 
-Kaggle Link: [https://www.kaggle.com/code/bearcater/h-m-personalized-fashion-recommendations](https://www.kaggle.com/code/bearcater/h-m-personalized-fashion-recommendations)
+Kaggle Link: [https://www.kaggle.com/datasets/ranitsarkar01/porter-delivery-time-estimation](https://www.kaggle.com/datasets/ranitsarkar01/porter-delivery-time-estimation)
 
 ## Files:
-- images/ - a folder of images corresponding to each article_id; images are placed in subfolders starting with the first three digits of the article_id; note, not all article_id values have a corresponding image.
-- articles.csv - detailed metadata for each article_id available for purchase
-- customers.csv - metadata for each customer_id in dataset
-- sample_submission.csv - a sample submission file in the correct format
-- transactions_train.csv - the training data, consisting of the purchases each customer for each date, as well as additional information. Duplicate rows correspond to multiple purchases of the same item. Your task is to predict the article_ids each customer will purchase during the 7-day period immediately after the training data period.
+Each row in this file corresponds to one unique delivery. Each column corresponds to a feature as explained below
+
+- market id: integer id for the market where the restaurant lies
+- created at: the timestamp at which the order was placed
+- actual delivery time: the timestamp when the order was delivered
+- store_primary_category: category for the restaurant
+- order protocol: integer code value for order protocol(how the order was placed le: through porter, call to   restaurant, pre booked, third part etc)
+- total items subtotal: final price of the order
+- num_distinct items: the number of distinct items in the order
+- actual delivery time: the timestamp when the order was delivered
+- store_primary_category: category for the restaurant
+- order protocol: integer code value for order protocol(how the order was placed le: through porter, call to restaurant, pre booked, third part etc)
+- total items subtotal: final price of the order
+- num_distinct items: the number of distinct items in the order
+- min_item_price: price of the cheapest item in the order
+- max_item_price: price of the costliest item in order
+- total_onshift_partners: number of delivery partners on duty at the time order was placed
+- total_busy_partners: number of delivery partners attending to other tasks
+- total outstanding_orders: total number of orders to be fulfilled at the moment
 
 # Business Problem or Opportunity, Domain Knowledge
 
-Link to domain data and need for this opportunity: [https://hmgroup.com/our-stories/plugged-in-how-hm-group-collaborates-with-the-tech-community/](https://hmgroup.com/our-stories/plugged-in-how-hm-group-collaborates-with-the-tech-community/)
+The dataset titled "Porter Delivery Time Estimation" available on Kaggle provides a prospect for data-driven analysis in the realm of food delivery by presenting a business problem. Food delivery enterprises, including restaurants, cafes, and food delivery platforms, encounter the difficulty of accurately predicting and controlling delivery durations to ensure a gratifying encounter for their clientele. Precise estimation of delivery time is critical for fulfilling customer demands, guaranteeing punctual deliveries, and upholding customer contentment.
 
-## Business Problem/Opportunity: Improving Personalized Fashion Recommendations
+The "Porter Delivery Time Estimation" dataset presents a valuable opportunity for businesses to utilize existing data in order to extract insights and arrive at well-informed decisions. The dataset can be analyzed and valuable insights can be derived by utilizing domain knowledge related to the food delivery industry, logistics, and customer preferences. Through an analysis of the variables that impact delivery time, discernment of patterns and trends in order volume, customer satisfaction, delivery performance, and vendor performance, enterprises can optimize their operational processes, enhance their customer service, and augment their competitive edge.
 
-### Domain Knowledge:
+The interpretation of data and discovery of significant insights can be facilitated through the utilization of domain knowledge in fields such as transportation and logistics, customer behavior, and market trends. An instance of optimization for delivery routes and schedules in businesses can be achieved by comprehending the influence of weather conditions, traffic patterns, and distance on delivery time. Acquiring an understanding of customer preferences, including peak hours and days, can aid businesses in effectively strategizing their resource allocation and operational procedures. Familiarity with market trends and seasonal patterns can assist enterprises in adapting their tactics and advertising campaigns to accommodate evolving consumer preferences.
 
-- Fashion Retail: In order to offer customized fashion suggestions, it is crucial to possess a comprehensive comprehension of the fashion industry's workings, including factors such as shopper preferences, fashion trends, and seasonal variations. This entails investigating past fashion data, staying up-to-date with current trends, and comprehending customer behavior while shopping for apparel.
-- Customer Segmentation: Customers can be classified based on their demographics, preferences, and behaviors, which can be used to create tailored fashion recommendations. Using clustering methods such as k-means or hierarchical clustering to group similar customers based on their shopping habits, browsing activity, or interaction with fashion items may be part of this process.
-- Recommendation Systems: Having knowledge about diverse recommendation algorithms, such as collaborative filtering, content-based filtering, and hybrid methods, can assist in creating proficient personalized fashion recommendation systems. This could require examining user-item interactions, item qualities, and other relevant features to create Customized guidance based on the user's preferences, browsing history, or past purchasing behavior.
-- Data Preprocessing and Feature Engineering: Understanding how to preprocess and engineer relevant features from the dataset, such as customer demographics, product attributes, purchase history, and browsing behavior, is critical for building accurate and meaningful personalized fashion recommendation models. This may involve data cleaning, feature extraction, normalization, or encoding techniques
-- Evaluation Metrics: When evaluating the performance of personalized fashion recommendation models, it can be helpful to have a working knowledge of appropriate evaluation metrics. Some examples of these metrics include precision, recall, and F1-score. Ranking-based metrics, such as precision at k or normalized discounted cumulative gain (NDCG), are also examples. This may involve comparing different algorithms or models based on their performance metrics to identify the best-performing recommendation system.
+In general, the utilization of domain expertise and examination of the "Porter Delivery Time Estimation" dataset offers a prospect for enhancing delivery time estimation, streamlining operations, augmenting customer contentment, and attaining a competitive edge in the food delivery sector.
 
-##  Research Objectives and Question(s) (what you are trying to describe or predict with the data)
+Link to domain data: [https://porter.in/about-us?landing_page=nw&utm_content=nw](https://porter.in/about-us?landing_page=nw&utm_content=nw)
 
-The team formulated research questions that guide their analysis and investigation. These questions align with their research objectives and are intended to address the identified business challenge or opportunity.
-For example, "What are the key factors that influence customer preferences and purchasing decisions in the fashion industry?", "How accurate can we predict customer preferences and behaviors using different machine learning algorithms?", and "What strategies can be developed to improve personalized fashion recommendations and drive customer engagement and conversion?", “Do customers buy items they bought before?”
-## Second Choice :
-
-# Selection of data to analyze
-
-The dataset includes information about ~73,000 Scrabble games played by three bots on Woogles.io: BetterBot (beginner), STEEBot (intermediate), and HastyBot (advanced). The games are between the bots and their opponents who are regular registered users. You are using metadata about the games as well as turns in each game (i.e., players' racks and where and what they played, AKA gameplay) to predict the rating of the human opponents in the test set (test.csv). You will train your model on gameplay data from one set of human opponents to make predictions about a different set of human opponents in the test set.
-
-There is metadata for each game (games.csv), gameplay data about turns played by each player in each game (turns.csv), and final scores and ratings from BEFORE a given game was played for each player in each game (train.csv and test.csv).
-
-Here is an example of a game played on woogles.io: https://woogles.io/game/icNJtmxy. Use the "Examine" button to replay the game turn-by-turn.
-
-
-Kaggle Link: [https://www.kaggle.com/competitions/scrabble-player-rating/overview](https://www.kaggle.com/competitions/scrabble-player-rating/overview)
-
-## Files:
-This project aims to predict the rating of human opponents in Scrabble games played on Woogles.io based on metadata and gameplay data. The dataset includes information about approximately 73,000 games played by three bots (BetterBot, STEEBot, and HastyBot) against regular registered users. The dataset is divided into several CSV files, including games.csv, turns.csv, train.csv, and test.csv.
-
-# Dataset Description
-### games.csv
-This file contains metadata about games, including the following columns:
-
--game_id: Unique id for the game
--first: Which player went first
--time_control_name: Name of time control used ("regular", "rapid", or "blitz")
--game_end_reason: How the game ended
--winner: Who won the game
--created_at: When the game was created
--lexicon: English lexicon used in the game ("CSW19", "NWL20", "CSW21")
--initial_time_seconds: Time limit each player has in the game (defines the time control name)
--increment_seconds: Time increment each player gets each time they play a turn
--rating_mode: Whether the game counts towards player ratings or not ("RATED", "CASUAL")
--max_overtime_minutes: How far past the initial time limit players can go before they timeout
--game_duration_seconds: How long the game lasted
-
-### turns.csv
-This file contains gameplay data about turns played by each player in each game, including the following columns:
-
--game_id: Unique id for the game
--turn_number: The turn number in the game
--nickname: Player's username on woogles.io
--rack: Player's current rack
--location: Where the player places their turn on the board (NA for games in the test set or if the player didn't make a play, e.g., if they exchanged)
--move: Tiles the player laid (NA for games in the test set; "--" if the turn_type was "Pass"; "(challenge)" if the turn_type was "Challenge"; "-" plus tiles exchanged if the turn_type was "Exchange"; at the end of the game, remaining tiles in a player's rack are in parentheses)
--points: Points the player earned (or lost) in their turn
--score: Player's total score at the time of the turn
--turn_type: Type of turn played ("Play", "Exchange", "Pass", "Six-Zero Rule" (i.e., a game that ends when players pass 3 turns in a row each), "Challenge")
--train.csv and test.csv
-These files contain final scores and ratings from BEFORE a given game was played for each player in each game, including the following columns:
-
--game_id: Unique id for the game
--nickname: Player's username on woogles.io
--score: Final score for each player for each game
--rating: Player's rating on woogles.io BEFORE the game was played; ratings are per Lexicon / time control name (AKA game variant). In test.csv, ratings are NA for player games; this is what you are predicting.
-
-Objective
-This project's objective is to develop a predictive model that can accurately predict the ratings of human opponents in the test set (test.csv) by utilizing provided metadata and gameplay data. The model will be trained on gameplay data of a separate group of human opponents in the train set (train.csv) and assessed on its proficiency in predicting the ratings of another distinct group of human opponents.
-
-# Business Problem or Opportunity, Domain Knowledge
-
-Link to domain data: [https://www.coololdgames.com/tile-games/scrabble/](https://www.coololdgames.com/tile-games/scrabble/)
-
-## Business Problem/Opportunity: Scrabble Player Rating
+## Business Problem/Opportunity: Improving Delivery time
 
 ### Domain Knowledge:
+- Domain knowledge in market trends:
+
+    The comprehension of market trends and seasonality is crucial for businesses to adapt their strategies and promotional activities to cater to the evolving demands of their customers. The identification of seasonal variations in demand for specific types of cuisine or food products can aid enterprises in devising appropriate strategies for inventory management, staffing, and promotional activities.
+
+    Conducting competition analysis by monitoring market trends and scrutinizing the products, pricing, and promotional strategies of rivals can enable enterprises to maintain their competitiveness. The process may encompass the surveillance of the market for novel participants, the discernment of customer inclinations, and the comparison with rivals to pinpoint opportunities for enhancement and distinction.
+
+    Market segmentation is a crucial strategy for businesses to comprehend the distinct customer segments and their preferences. This understanding enables businesses to customize their offerings and promotions to cater to the unique requirements of each segment. The process may entail scrutinizing data pertaining to customer demographics, preferences, and behaviors to discern prospects for targeting particular market segments through tailored strategies.
+
+- Domain knowledge in Transportation and logistics
+
+    Real-time traffic and weather data may be used to determine the shortest and most direct routes for vehicles. This involves evaluating information such as traffic patterns, road conditions, and weather forecasts to decide the most effective route for delivery to take. By optimizing delivery routes, businesses may reduce delays, save money on transportation costs, and ensure that items reach on time.
+
+    By allocating delivery trucks to the appropriate jobs, planning routine maintenance, controlling fuel consumption, and utilizing tracking and monitoring systems, fleet management ensures that they are utilized effectively. This entails determining the efficiency of each vehicle, the amount of gasoline it consumes, and when maintenance is due. Businesses can ensure their drivers are secure and their cars aren't being misused by deploying tracking and monitoring technologies.
+
+    Businesses must select the appropriate mode of transportation for their delivery since different modes of transportation have varied prices, benefits, and restrictions. For instance, when moving products over short distances, employing trucks is typically the most flexible and economical alternative, whereas air transportation is quicker but more expensive and less versatile.
+
+- Domain knowledge in Customer Conduct:
+
+    Businesses may better manage their resources and schedule deliveries to make sure they arrive on time during peak times by being aware of when consumers are most likely to place purchases. To find trends in consumer behavior, this entails analyzing data such as order history, transaction volume, and delivery timings. Businesses may prepare ahead of time and make sure they have adequate employees and inventory to satisfy demand by knowing when consumers are most likely to place orders.
 
 
-- Player performance analysis: By utilizing the dataset, you can scrutinize the proficiency of Scrabble players, which includes their average score, win/loss ratio, word preferences, and game tactics. This process can assist in detecting trends and patterns in player performance and identifying possible areas for improvement or optimization.
+    Businesses can learn how to better serve their customers and grow by looking at consumer purchase trends, such as the most popular days of the week or the most frequently requested items. This entails gathering and researching information such as order histories, menu choices, and client testimonials. Businesses may better meet consumer demands and enhance the overall experience by learning what customers love and dislike about their goods and services.
 
-- Player rating system evaluation: Scrabble utilizes a rating system that assigns a numeric value to each player based on their game performance. By utilizing the dataset, you can appraise the efficiency of the existing rating system, detect any biases or inconsistencies, and suggest alterations or enhancements to strengthen the rating system.
-
-- Strategy analysis: Scrabble is a game that involves selecting words strategically, and analyzing the dataset can help understand the strategies that players use. These strategies may include choosing words that yield high scores, placing tiles effectively, and making defensive or offensive moves. Examining this data could provide valuable insights into the most effective tactics and strategies to use in Scrabble.
-
-- Player behavior analysis: Through a thorough analysis of the dataset, it becomes feasible to explore how Scrabble players approach the game, which words they favor, and their game patterns. Such an analysis can help to identify any typical behaviors or trends among players and offer insightful knowledge regarding their methods, inclinations, and habits.
-
-- Tournament performance analysis: Scrabble tournaments are arranged across various levels, ranging from regional to international contests. The dataset can be utilized to conduct an analysis of players' performance in Scrabble tournaments, ascertain the factors that impact tournament success, and reveal prospective strategies for enhancing tournament performance.
+    Customer feedback and reviews: Analyzing customer feedback and reviews can provide valuable insights into customer behavior and preferences. This can involve identifying common complaints, feedback on delivery time, and overall satisfaction levels to pinpoint areas for improvement and make data-driven decisions.
 
 
 ##  Research Objectives and Question(s) (what you are trying to describe or predict with the data)
 
-Based on the domain knowledge and potential business problem or opportunity identified from the "Scrabble Player Rating" dataset, the following research objectives and questions can be formulated:
+The team formulated research questions that guide the analysis and investigation. These questions align with their research objectives and are intended to address the identified business challenge or opportunity.
+For example, 
+- What are the key factors that influence the delivery time of orders placed through the Porter platform? Can we identify any patterns or trends in the data that can help optimize delivery operations and reduce delivery time?
 
-- Research Objective 1: Evaluate the relationship between the ratings of Scrabble players and their corresponding level of performance. Research Question 1: To what extent do player ratings affect their win/loss ratio, average scores, and game outcomes? Research Question 2: How can the Scrabble rating system be improved to provide more accurate and impartial player ratings, ensuring fairness and consistency?
+- How does the order protocol (i.e., how the order was placed) affect the delivery time? Are there any significant differences in delivery time based on different order protocols, such as orders placed through Porter, call to restaurant, pre-booked, or third-party platforms?
 
-- Research Objective 2: Explore opportunities to enhance the Scrabble rating system for even better results.
+- How do the restaurant's primary category and the total number of distinct items in an order impact the delivery time? Are certain restaurant categories or order sizes associated with longer or shorter delivery times?
 
+- Can we develop a predictive model that accurately estimates the delivery time for orders based on features such as distance, weather conditions, order characteristics, and partner availability? How well can the model predict the actual delivery time?
 
-- Research Question 3: What are the effective tactics utilized by Scrabble players, such as word choices, tile placements, and defensive/offensive moves, and which strategies are associated with higher scores or win rates? Research Objective 3: Explore the strategies utilized by Scrabble players and discover the most effective tactics for achieving exceptional performance.
+- What is the relationship between the prices of items in an order (i.e., min_item_price, max_item_price) and the delivery time? Do higher or lower prices of items in an order have an impact on the delivery time?
 
+- How do the number of on-shift and busy delivery partners at the time of order placement affect the delivery time? Can we identify any patterns or trends that can help optimize partner allocation and reduce delivery time?
 
-- Research Question 4: How can understanding common playing styles, word preferences, and player behaviors in Scrabble games positively impact player performance? Research Objective 4: Discover exciting insights into Scrabble players' preferences, behaviors, and playing styles.
+- What is the impact of the total number of outstanding orders at the moment on the delivery time? Does a higher number of outstanding orders result in longer delivery times?
 
-- Research Question 5: How can players improve their performance in Scrabble tournaments by considering factors such as player ratings, playing styles, strategies, and tournament formats? Research Objective 5: Explore the factors that contribute to success in Scrabble tournaments and identify strategies for improving performance.
+- Are there any seasonal or time-based trends in the data that affect the delivery time? How does the delivery time vary based on different days of the week, time of day, or month of the year?
 
+- Can we identify any customer behavior patterns related to delivery time, such as peak hours or days for ordering, preferences for certain order protocols or restaurant categories, or preferences for higher or lower-priced items?
+
+- How does the delivery time impact customer satisfaction? Can we quantify the relationship between delivery time and customer satisfaction scores, and identify any opportunities for improving customer satisfaction through optimizing delivery time?
+
+- Comparison with other delivery systems available in the market to show the trends and to compare the differences.
