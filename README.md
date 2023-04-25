@@ -118,3 +118,42 @@ For example,
 - How does the delivery time impact customer satisfaction? Can we quantify the relationship between delivery time and customer satisfaction scores, and identify any opportunities for improving customer satisfaction through optimizing delivery time?
 
 - Comparison with other delivery systems available in the market to show the trends and to compare the differences.
+
+
+## Deliverable 2
+
+### Data Understanding
+
+#### Exploratory Data Analysis
+
+We have used AWS SageMaker Notebook instances to conduct exploratory data analysis on our Porter data. During this process, we developed code to perform null value checks on both rows and columns of the dataset. Tried to understand the data using different visualizations. Below are the functions we have used to understand data.
+
+- The function known as check_missing_values is tasked with the responsibility of ascertaining the presence or absence of any missing values within the given dataset. Consequently, the function produces a binary output denoting the presence or absence of null values within the dataset. In the event that there are any absent values, the proportion of absent values from every column is exhibited.
+
+- The function named "check_duplicates" is designed to conduct a search within a given dataset to identify rows that exhibit complete similarity with each other. The function yields a boolean output denoting the presence or absence of identical rows within the dataset. If there exist replicated rows, the aggregate count of such duplicated rows is also displayed.
+
+- The responsibility of computing summary statistics for the numerical columns of the dataset lies with the function named "Get_statistics". The aforementioned statistical measures, namely the mean, median, mode, standard deviation, minimum and maximum values, and quartiles, are commonly utilized in data analysis. The resulting output is a dataframe that includes the aforementioned statistics.
+
+- The function get_histogram utilizes the quantitative variables present in the dataset to produce histograms. The matplotlib library proves to be a valuable tool in the creation of histograms.
+
+#### Dashboard
+
+We have used Amazon Quick Sight to build our dashboard. We have made use of the different visualizations available in the Quick Sight to understand the data better.The dashboard pdf and dashboard sheets can be found in the  deliverable2 folder of the repo.
+
+#### Insights generated
+- The analysis reveals that the top three num_distinct_itemss for total time_taken(mins) are 2, 1, and 3, with 2,736,542, 2,371,459, and 2,003,903 respectively. The top three num_distinct_itemss for total total_onshift_partners are 2, 1, and 3, with 2,369,580, 1,876,327, and 1,756,693 respectively, while the total total_onshift_partners are 8,076,397. The bottom three num_distinct_itemss for total time_taken(mins) are 20, 17, and 18, with 53, 154, and 198 respectively, and the bottom three num_distinct_itemss for total total_onshift_partners are 20, 17, and 19, with 55, 82, and 95 respectively.
+
+- The top three order_protocols for total count of records are 1, 3, and 5, with 54,725, 53,199, and 44,290 respectively, while the bottom three order_protocols for total count of records are 7, 6, and null, with 19, 794, and 995 respectively. The total count of records for Feb 19, 2015 decreased by 99.98% (-4,117) from 4,118 to 1. The bottom three order_protocols for total total_items are 7, 6, and 2, with 56, 1,987, and 75,660 respectively.
+
+- The highest day is Feb 2015 with a total count of actual_delivery_time of 9,149.
+
+
+### Data Preparation
+
+In the process of preparing data for analysis we have used the following.
+
+- The remove_outliers function is designed to eliminate any outliers present in the dataset. The z-score technique is employed to detect and eliminate outliers from the dataset. The input parameters for the function include a dataframe and a threshold value. In statistical analysis, an outlier is identified as any data point that exhibits a z-score exceeding the threshold value, and subsequently excluded from the dataset.
+
+- The impute_missing_values function is designed to address missing values in a dataset by utilizing the mean value of the corresponding column for imputation purposes. The function accepts a dataframe as an argument and proceeds to substitute any missing values with the mean value of the corresponding column.
+
+- The normalize_data function performs z-score normalization on the dataset to normalize the data. The function accepts a dataframe as an argument and produces a normalized dataframe as output. The z-score normalization technique is utilized to standardize data by performing two operations on each column: subtracting the mean value and dividing by the standard deviation.
