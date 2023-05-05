@@ -191,6 +191,8 @@ r2_score:0.0005775778642763685
 
 ![Correlation Graph](correlation.png)
 
+![Comparson of different markets and the time taken by each market](comparisonGraph.png)
+
 ### Future Work, Comments
 
 ## What was unique about the data?  Did you have to deal with imbalance? What data cleaning did you do? Outlier treatment?  Imputation?
