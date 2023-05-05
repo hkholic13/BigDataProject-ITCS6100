@@ -157,3 +157,84 @@ In the process of preparing data for analysis we have used the following.
 - The impute_missing_values function is designed to address missing values in a dataset by utilizing the mean value of the corresponding column for imputation purposes. The function accepts a dataframe as an argument and proceeds to substitute any missing values with the mean value of the corresponding column.
 
 - The normalize_data function performs z-score normalization on the dataset to normalize the data. The function accepts a dataframe as an argument and produces a normalized dataframe as output. The z-score normalization technique is utilized to standardize data by performing two operations on each column: subtracting the mean value and dividing by the standard deviation.
+
+### Machine Learning & Analytics
+XGBoost (Extreme Gradient Boosting) is a popular machine learning algorithm that is widely used for regression and classification tasks. It is an optimized implementation of gradient boosting, which is an ensemble learning technique that combines multiple weak predictive models (often decision trees) to create a stronger overall predictive model.In the context of regression, the XGBoost regressor is a variant of the XGBoost algorithm specifically designed for predicting continuous numerical values. 
+
+In project context,
+- The XGBoost regressor is imported from the xgboost library.
+- An XGBoost regressor model is created with specified hyperparameters (max_depth=3, learning_rate=0.1, and n_estimators=100).
+- The model is trained using the training data (X_train and y_train).
+- Predictions are made on the test data (X_test) using the trained model, and the predicted values are stored in y_pred.
+- Evaluation metrics, mean absolute error (mae) and R-squared score (r2), are calculated using the predicted values and the actual target values (y_test).
+- Finally, the MAE and R-squared score are printed to assess the performance of the model.
+
+
+### Evaluation:
+
+- The mean_absolute_error function from scikit-learn assists in calculating the average difference between the predicted and actual values. This function is helpful for determining how accurately a model is performing.
+
+- On the other hand, the R-squared (R2) score, which represents the percentage of the target variable's variability that can be explained by the input variables, is calculated using the r2_score function from the scikit-learn package. A higher score indicates a better match between the model and the data; the value runs from 0 to 1. The R2 score essentially serves as a gauge of how effectively the model can identify patterns in the data and forecast the target variable.
+
+
+### Optimization
+
+- We started with initializing the regression XGBoost model with default settings to predict the target variable. The data was then processed to make sure it could be used with the model. This involves dealing with missing data, null values, eliminating negative values from certain columns, and changing numerical properties using a logarithmic function. Using LabelEncoder, categorical features are also transformed into numerical values.
+
+- Using the train_test_split function from scikit-learn, we then divided the dataset into two groups for training and testing. We fitted the XGBoost model to the target variable using the training data. The model's predictions were then obtained using the predict technique on the test data.
+
+- The performance of the model is then evaluated by calculating the MAE and R2 score metrics. This discrepancy is quantified by the average absolute difference (MAE) between actual and anticipated values. The R2 score, which is given as a percentage, indicates how much of the variance in the target variable can be explained by the model's input variables.
+
+### Results
+Mean absolute error:12.828135421180502
+r2_score:0.0005775778642763685
+
+![Correlation Graph](correlation.png)
+
+### Future Work, Comments
+
+## What was unique about the data?  Did you have to deal with imbalance? What data cleaning did you do? Outlier treatment?  Imputation?
+- The dataset used in the analysis had some unique features that required specific data cleaning steps. One of these steps involved converting the 'created_at' and 'actual_delivery_time' columns to datetime format to enable the calculation of the time taken for delivery.
+
+- Another important aspect was dealing with outliers in the numerical features. This was done using box plots to identify and remove any values that fell outside of the expected range. For instance, negative values in 'min_item_price', 'total_outstanding_orders', 'total_onshift_partners', and 'total_busy_partners' were removed from the dataset.
+
+- Regarding missing values, the code implemented various imputation strategies based on the type of feature. For categorical features ('market_id', 'store_primary_category', 'order_protocol'), the most frequent value was imputed for missing values. For numerical features ('total_onshift_partners', 'total_busy_partners', 'total_outstanding_orders', 'time_taken(mins)'), the mean value was imputed for missing values.
+
+- To evaluate the model's performance, the data was split into training and testing sets using a 70:30 ratio. The XGBoost algorithm was applied to the training data for regression modeling. Mean absolute error and R2 score were used to assess the model's performance on the test data.
+
+
+## Did you create any new additional features/variables?
+We have created a new feature called 'time_taken(mins)' is developed  representing the time taken for delivery in minutes. This feature is derived by calculating the difference between the 'actual_delivery_time' and 'created_at' columns, indicating the time elapsed between when an order was created and when it was delivered.
+
+## What was the process you used for evaluation? What was the best result?
+We have utilized an XGBoost regressor in our code for evaluating the performance of predictive model. the mean absolute error (MAE) & r2 score are calculated and considered as the evaluation metrics.
+
+## What were the problems you faced? How did you solve them?
+- Firstly, the code calculated the percentage of missing values for each feature in the dataset, and it was found that several features had missing values. These features were: 'market_id', 'store_primary_category', 'order_protocol', 'total_onshift_partners', 'total_busy_partners', 'total_outstanding_orders', and 'time_taken(mins)'.
+
+- To solve this issue, the missing values were imputed with appropriate values. For categorical features ('market_id', 'store_primary_category', 'order_protocol'), the mode of the respective features was used to fill the missing values. On the other hand, for numerical features ('total_onshift_partners', 'total_busy_partners', 'total_outstanding_orders', 'time_taken(mins)'), the mean value was used to fill the missing values.
+
+- After imputing the missing values, the dataset was further processed for analysis and modeling. This ensured that all the necessary data was available for accurate analysis and modeling.
+
+## What future work would you like to do? 
+- To improve the performance of the XGBoost model, we should perform hyperparameter tuning using techniques such grid search or random search to find the optimal combination of hyperparameters. Parameters like learning rate, maximum depth, number of estimators, subsample, and regularization can be tuned for a better results.
+
+- In addition, we can explore additional feature engineering techniques to increase the predictive power of model. This can include creating new features based on domain knowledge or transforming existing variables to capture non-linear relationships. Interactions between variables, polynomial features, or any other feature transformations can also be considered to capture more complex patterns in data.
+
+- To further improve the model's performance, we can experiment with ensemble modeling techniques such as bagging and boosting. Different ensemble methods, such as stacking or blending, can be tried to combine the predictions of multiple models.
+
+- To obtain more reliable estimates of the model's performance, cross validation techniques can be implemented. This can help assess the model's generalization ability and decrease the risk of overfitting.
+
+- Finally, regularization techniques like L1 regularization or L2 regularization can be applied to prevent overfitting and improve the model's generalization.
+
+
+## Instructions for individuals that may want to use your work
+- Install the required libraries before using the code: Ensure that your Python environment has the necessary libraries installed before using the code. The 'pip install xgboost' command may be used to install the xgboost library, which is utilized in this code, on your terminal or command prompt.
+
+- Prepare the data: The code presupposes that the dataset is in a CSV file. The s3_csv_path variable must provide the path to your CSV file. Change it to reflect the location and filename of your dataset.
+
+- Run the program: Use a Python environment with the necessary libraries installed to run the code. Either the script or each cell in a Jupyter Notebook can be executed.
+
+- Interpreting the outcomes: After the code has completed running, you will see various metrics and visualizations. These reveal information about the dataset and how well the XGBoost regression model performed. In order to comprehend the data and assess the model's effectiveness, you should interpret the findings.
+
+- Change the code (optional): If necessary, change the code to meet your unique needs. You may alter the data pretreatment procedures, investigate new visualizations, test out other machine learning models, or fine-tune the model parameters, for example.
